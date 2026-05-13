@@ -55,8 +55,7 @@ root_package = "autoengine"
 name = "Module Layering"
 type = "layers"
 layers = [
-    "autoengine.layer2",
-    "autoengine.layer1",
+    "autoengine.run",
 ]
 
 # Pytest configurations
