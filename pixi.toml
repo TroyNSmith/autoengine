@@ -10,6 +10,10 @@ autostorage = "==0.0.7"  # local:false
 # automol = { path = "../automol" }  # local:true
 # autostorage = { path = "../autostorage" }  # local:true
 
+[pypi-dependencies]
+qcdata = ">=0.17.0, <0.18"
+qccompute = ">=0.13.0, <0.14"
+
 [package]
 name = "autoengine"
 version = "0.0.1"

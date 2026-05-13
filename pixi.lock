@@ -8,6 +8,8 @@ environments:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
     - url: https://conda.anaconda.org/avcopan/
+    indexes:
+    - https://pypi.org/simple
     packages:
       linux-64:
       - conda: https://conda.anaconda.org/avcopan/noarch/automol-0.0.11-pyh4616a5c_0.conda
@@ -83,6 +85,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/pycairo-1.29.0-py314h9cd037b_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/pydantic-core-2.46.4-py314h2e6c369_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/python-3.14.4-habeac84_100_cp314.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/pyyaml-6.0.3-py314h67df5f8_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/qhull-2020.2-h434a139_5.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/rdkit-2026.03.2-py314ha5e8abd_2.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/readline-8.3-h853b02a_0.conda
@@ -97,6 +100,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxdmcp-1.1.5-hb03c661_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxext-1.3.7-hb03c661_0.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/xorg-libxrender-0.9.12-hb9d3cd8_0.conda
+      - conda: https://conda.anaconda.org/conda-forge/linux-64/yaml-0.2.5-h280c20c_3.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-ng-2.3.3-hceb46e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/annotated-types-0.7.0-pyhd8ed1ab_1.conda
@@ -141,6 +145,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/six-1.17.0-pyhe01879c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sqlmodel-0.0.38-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/stack_data-0.6.3-pyhd8ed1ab_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-w-1.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/traitlets-5.15.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
@@ -148,6 +153,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/tzdata-2025c-hc9c84f9_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/wcwidth-0.7.0-pyhd8ed1ab_0.conda
       - conda_source: autoengine[7c668d5a] @ .
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/4f/c8/3834050d3efe80c592aaa9a93ef8b4f8dc9a90f3f445ddad851ed5eb034a/qcdata-0.17.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/59/64/b8170ea3ac40c805f9927e8775dfe2f8d13b9194804fccbd0c981274fd5d/qccodec-0.10.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/d7/f12f520a35d8ff5cd647d37627bcf1be98f701c4ab69b520164214ba7e77/qcconst-0.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cf/22/fdc2e30d43ff853720042fa15baa3e6122722be1a7950a98233ebb55cd71/eval_type_backport-0.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/2e/08e9874d1f6adcf103444a2e05aee7d44551864689c61c6f09fa1d4f3291/qccompute-0.13.1-py3-none-any.whl
       osx-64:
       - conda: https://conda.anaconda.org/avcopan/noarch/automol-0.0.11-pyh4616a5c_0.conda
       - conda: https://conda.anaconda.org/avcopan/noarch/autostorage-0.0.7-pyh4616a5c_0.conda
@@ -193,6 +204,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/six-1.17.0-pyhe01879c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sqlmodel-0.0.38-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/stack_data-0.6.3-pyhd8ed1ab_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-w-1.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/traitlets-5.15.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
@@ -265,6 +277,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/pycairo-1.29.0-py314he1f550d_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/pydantic-core-2.46.4-py314h8916c15_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/python-3.14.4-h7c6738f_100_cp314.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/pyyaml-6.0.3-py314h10d0514_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/qhull-2020.2-h3c5361c_5.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/rdkit-2026.03.2-py314hcb20596_2.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/readline-8.3-h68b038d_0.conda
@@ -274,9 +287,16 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/unicodedata2-17.0.1-py314h4f144dc_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/xorg-libxau-1.0.12-h8616949_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/xorg-libxdmcp-1.1.5-h8616949_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-64/yaml-0.2.5-h4132b18_3.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zlib-ng-2.3.3-h8bce59a_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
       - conda_source: autoengine[bbe9e03b] @ .
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/4f/c8/3834050d3efe80c592aaa9a93ef8b4f8dc9a90f3f445ddad851ed5eb034a/qcdata-0.17.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/59/64/b8170ea3ac40c805f9927e8775dfe2f8d13b9194804fccbd0c981274fd5d/qccodec-0.10.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/d7/f12f520a35d8ff5cd647d37627bcf1be98f701c4ab69b520164214ba7e77/qcconst-0.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cf/22/fdc2e30d43ff853720042fa15baa3e6122722be1a7950a98233ebb55cd71/eval_type_backport-0.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/2e/08e9874d1f6adcf103444a2e05aee7d44551864689c61c6f09fa1d4f3291/qccompute-0.13.1-py3-none-any.whl
       osx-arm64:
       - conda: https://conda.anaconda.org/avcopan/noarch/automol-0.0.11-pyh4616a5c_0.conda
       - conda: https://conda.anaconda.org/avcopan/noarch/autostorage-0.0.7-pyh4616a5c_0.conda
@@ -322,6 +342,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/six-1.17.0-pyhe01879c_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/sqlmodel-0.0.38-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/stack_data-0.6.3-pyhd8ed1ab_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/noarch/tomli-w-1.2.0-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/traitlets-5.15.0-pyhcf101f3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing-extensions-4.15.0-h396c80c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/typing-inspection-0.4.2-pyhcf101f3_2.conda
@@ -394,6 +415,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pycairo-1.29.0-py314hde3b82e_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pydantic-core-2.46.4-py314h54f3292_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.14.4-h4c637c5_100_cp314.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pyyaml-6.0.3-py314h6e9b3f0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/qhull-2020.2-h420ef59_5.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rdkit-2026.03.2-py314h4d76327_2.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/readline-8.3-h46df422_0.conda
@@ -403,9 +425,16 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/unicodedata2-17.0.1-py314h6c2aa35_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/xorg-libxau-1.0.12-hc919400_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/xorg-libxdmcp-1.1.5-hc919400_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/yaml-0.2.5-h925e9cb_3.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zlib-ng-2.3.3-hed4e4f5_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
       - conda_source: autoengine[92fb0b09] @ .
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/4f/c8/3834050d3efe80c592aaa9a93ef8b4f8dc9a90f3f445ddad851ed5eb034a/qcdata-0.17.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/59/64/b8170ea3ac40c805f9927e8775dfe2f8d13b9194804fccbd0c981274fd5d/qccodec-0.10.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/d7/f12f520a35d8ff5cd647d37627bcf1be98f701c4ab69b520164214ba7e77/qcconst-0.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cf/22/fdc2e30d43ff853720042fa15baa3e6122722be1a7950a98233ebb55cd71/eval_type_backport-0.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/2e/08e9874d1f6adcf103444a2e05aee7d44551864689c61c6f09fa1d4f3291/qccompute-0.13.1-py3-none-any.whl
   dev:
     channels:
     - url: https://conda.anaconda.org/conda-forge/
@@ -680,6 +709,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/zipp-3.23.1-pyhcf101f3_0.conda
       - conda_source: autoengine[7c668d5a] @ .
       - pypi: https://files.pythonhosted.org/packages/23/06/b4f06ca7afb5d9e942c642980c308ffcfa1fa0e8b0a3ddbec78483ef1614/keepachangelog-2.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/4f/c8/3834050d3efe80c592aaa9a93ef8b4f8dc9a90f3f445ddad851ed5eb034a/qcdata-0.17.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/59/64/b8170ea3ac40c805f9927e8775dfe2f8d13b9194804fccbd0c981274fd5d/qccodec-0.10.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/d7/f12f520a35d8ff5cd647d37627bcf1be98f701c4ab69b520164214ba7e77/qcconst-0.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cf/22/fdc2e30d43ff853720042fa15baa3e6122722be1a7950a98233ebb55cd71/eval_type_backport-0.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/2e/08e9874d1f6adcf103444a2e05aee7d44551864689c61c6f09fa1d4f3291/qccompute-0.13.1-py3-none-any.whl
       osx-64:
       - conda: https://conda.anaconda.org/avcopan/noarch/automol-0.0.11-pyh4616a5c_0.conda
       - conda: https://conda.anaconda.org/avcopan/noarch/autostorage-0.0.7-pyh4616a5c_0.conda
@@ -937,6 +972,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-64/zstd-1.5.7-h3eecb57_6.conda
       - conda_source: autoengine[bbe9e03b] @ .
       - pypi: https://files.pythonhosted.org/packages/23/06/b4f06ca7afb5d9e942c642980c308ffcfa1fa0e8b0a3ddbec78483ef1614/keepachangelog-2.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/4f/c8/3834050d3efe80c592aaa9a93ef8b4f8dc9a90f3f445ddad851ed5eb034a/qcdata-0.17.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/59/64/b8170ea3ac40c805f9927e8775dfe2f8d13b9194804fccbd0c981274fd5d/qccodec-0.10.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/d7/f12f520a35d8ff5cd647d37627bcf1be98f701c4ab69b520164214ba7e77/qcconst-0.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cf/22/fdc2e30d43ff853720042fa15baa3e6122722be1a7950a98233ebb55cd71/eval_type_backport-0.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/2e/08e9874d1f6adcf103444a2e05aee7d44551864689c61c6f09fa1d4f3291/qccompute-0.13.1-py3-none-any.whl
       osx-arm64:
       - conda: https://conda.anaconda.org/avcopan/noarch/automol-0.0.11-pyh4616a5c_0.conda
       - conda: https://conda.anaconda.org/avcopan/noarch/autostorage-0.0.7-pyh4616a5c_0.conda
@@ -1194,6 +1235,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.7-hbf9d68e_6.conda
       - conda_source: autoengine[92fb0b09] @ .
       - pypi: https://files.pythonhosted.org/packages/23/06/b4f06ca7afb5d9e942c642980c308ffcfa1fa0e8b0a3ddbec78483ef1614/keepachangelog-2.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/4f/c8/3834050d3efe80c592aaa9a93ef8b4f8dc9a90f3f445ddad851ed5eb034a/qcdata-0.17.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/59/64/b8170ea3ac40c805f9927e8775dfe2f8d13b9194804fccbd0c981274fd5d/qccodec-0.10.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/d7/f12f520a35d8ff5cd647d37627bcf1be98f701c4ab69b520164214ba7e77/qcconst-0.2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/cf/22/fdc2e30d43ff853720042fa15baa3e6122722be1a7950a98233ebb55cd71/eval_type_backport-0.3.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/ee/2e/08e9874d1f6adcf103444a2e05aee7d44551864689c61c6f09fa1d4f3291/qccompute-0.13.1-py3-none-any.whl
 packages:
 - conda: https://conda.anaconda.org/avcopan/noarch/automol-0.0.11-pyh4616a5c_0.conda
   sha256: 73bb06af840625e034f17e13c03a2f9638734172a1e24cbcffca5f7558644915
@@ -7869,3 +7916,68 @@ packages:
   - flask-restx==1.* ; extra == 'testing'
   - pytest-cov==5.* ; extra == 'testing'
   requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
+  name: toml
+  version: 0.10.2
+  sha256: 806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b
+  requires_python: '>=2.6,!=3.0.*,!=3.1.*,!=3.2.*'
+- pypi: https://files.pythonhosted.org/packages/4f/c8/3834050d3efe80c592aaa9a93ef8b4f8dc9a90f3f445ddad851ed5eb034a/qcdata-0.17.1-py3-none-any.whl
+  name: qcdata
+  version: 0.17.1
+  sha256: a6b68b9e8dee7a9bfdea37e2d0a15f47d2d9e83a694368d092be35d7b807678e
+  requires_dist:
+  - eval-type-backport>=0.2.0
+  - numpy>=1.20
+  - pydantic>=2.0.0,!=2.0.1,!=2.1.0
+  - pyyaml>=6.0
+  - qcconst>=0.2.1
+  - toml>=0.10.2
+  - typing-extensions>=4.7.1
+  - ipython>=8.0.0 ; extra == 'all'
+  - matplotlib>=3.0.0 ; extra == 'all'
+  - py3dmol>=2.2.1 ; extra == 'all'
+  - qcinf>=0.1.1 ; extra == 'all'
+  - rdkit>=2022.3.3 ; extra == 'all'
+  - ipython>=8.0.0 ; extra == 'view'
+  - matplotlib>=3.0.0 ; extra == 'view'
+  - py3dmol>=2.2.1 ; extra == 'view'
+  - qcinf>=0.1.1 ; extra == 'view'
+  - rdkit>=2022.3.3 ; extra == 'view'
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/59/64/b8170ea3ac40c805f9927e8775dfe2f8d13b9194804fccbd0c981274fd5d/qccodec-0.10.1-py3-none-any.whl
+  name: qccodec
+  version: 0.10.1
+  sha256: 7bbd7392580e3d81159d143bacd0efa600ef354bb758b7a6efcfdc2224c1b7a8
+  requires_dist:
+  - qcconst>=0.2.1
+  - qcdata>=0.17.0
+  - tomli-w>=1.0.0
+  requires_python: '>=3.10'
+- pypi: https://files.pythonhosted.org/packages/93/d7/f12f520a35d8ff5cd647d37627bcf1be98f701c4ab69b520164214ba7e77/qcconst-0.2.1-py3-none-any.whl
+  name: qcconst
+  version: 0.2.1
+  sha256: 2c1489e60909ac03daa448a06b59705376be6d71d6d0cee1caecde5517559206
+  requires_python: '>=3.9'
+- pypi: https://files.pythonhosted.org/packages/cf/22/fdc2e30d43ff853720042fa15baa3e6122722be1a7950a98233ebb55cd71/eval_type_backport-0.3.1-py3-none-any.whl
+  name: eval-type-backport
+  version: 0.3.1
+  sha256: 279ab641905e9f11129f56a8a78f493518515b83402b860f6f06dd7c011fdfa8
+  requires_dist:
+  - pytest ; extra == 'tests'
+  requires_python: '>=3.7'
+- pypi: https://files.pythonhosted.org/packages/ee/2e/08e9874d1f6adcf103444a2e05aee7d44551864689c61c6f09fa1d4f3291/qccompute-0.13.1-py3-none-any.whl
+  name: qccompute
+  version: 0.13.1
+  sha256: e4ec3cb093743f6626804189f645731a25c0593c0c2866d6fb848a1f950663ed
+  requires_dist:
+  - qccodec>=0.10.0
+  - qcdata>=0.17.0
+  - tomli-w>=1.0.0,<2
+  - geometric>=1.0.1,<2 ; extra == 'all'
+  - qcelemental>=0.26.0,<0.27 ; extra == 'all'
+  - qcengine>=0.27.0,<0.28 ; extra == 'all'
+  - tcpb>=0.16.0 ; extra == 'all'
+  - geometric>=1.0.1,<2 ; extra == 'geometric'
+  - qcelemental>=0.26.0,<0.27 ; extra == 'qcengine'
+  - qcengine>=0.27.0,<0.28 ; extra == 'qcengine'
+  requires_python: '>=3.10'
