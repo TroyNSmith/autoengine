@@ -3,7 +3,10 @@ name = "autoengine"
 version = "0.0.1"
 authors = [{name = "Andreas V. Copan", email = "avcopan@uga.edu"}]
 requires-python = ">= 3.12"
-dependencies = []
+dependencies = [
+    "automol>=0.0.11",
+    "autostorage>=0.0.7",
+]
 
 [build-system]
 build-backend = "uv_build"
