@@ -5,13 +5,13 @@
 #SBATCH --ntasks=4
 #SBATCH --time=4:00:00
 #SBATCH --mem=10G
-#SBATCH --array=0-0
+#SBATCH --array=0-2
 #SBATCH --output=log-%x-%A_%a.out
 
 set -euo pipefail
 
 # Repositories
-REPOS=("autoengine")
+REPOS=("automol" "autostorage" "autoengine")
 REPO="${REPOS[$SLURM_ARRAY_TASK_ID]}"
 
 # Directories

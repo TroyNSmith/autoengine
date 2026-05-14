@@ -10,7 +10,7 @@
 set -euo pipefail
 
 # Repositories
-REPOS=("autoengine")
+REPOS=("automol" "autostorage" "autoengine")
 
 if [[ -z "${PIXI_CACHE_DIR:-}" ]]; then
     echo "ERROR: PIXI_CACHE_DIR is not set."
