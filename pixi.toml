@@ -42,8 +42,6 @@ lefthook = "*"
 rattler-build = "*"
 tbump = "*"
 ipykernel = "*"
-rust = ">=1.95.0,<1.96"
-sqllineage = ">=1.5.7,<2"
 
 [feature.dev.pypi-dependencies]
 keepachangelog = "*"
@@ -59,13 +57,7 @@ default = { solve-group = "default" }
 dev = { features = ["dev", "docs"], solve-group = "default"}
 
 [pypi-dependencies]
-automol = "==0.0.10"
-autostorage = ">=0.0.7, <0.0.8"
 qccompute = ">=0.13.1, <0.14"
-
-[target.linux-64.pypi-dependencies]
-hyperqueue = ">=0.25.0, <0.26"
-maturin = ">=1.13.3, <2"
 
 [feature.dev.tasks]
 # Manage pyproject.toml with uv
