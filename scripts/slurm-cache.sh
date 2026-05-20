@@ -49,17 +49,17 @@ mkdir -p "$ORIG_CACHE_DIR"
 mkdir -p "$WORK_CACHE_DIR"
 mkdir -p "$WORK_DIR"
 
-echo "=== Step 1/5: Sync cache to lscratch ==="
+echo "=== Step 1/6: Sync cache to lscratch ==="
 time rsync -a "$ORIG_CACHE_DIR/" "$WORK_CACHE_DIR/"
 export PIXI_CACHE_DIR="$WORK_CACHE_DIR"
 
-echo "=== Step 2/5: Sync each repository to lscratch (excluding .git) ==="
+echo "=== Step 2/6: Sync each repository to lscratch (excluding .git) ==="
 for repo in "${REPOS[@]}"; do
     echo "--- Syncing $repo ---"
     time rsync -a --exclude='.git/' --exclude='.pixi*/' "$ORIG_DIR/$repo/" "$WORK_DIR/$repo/"
 done
 
-echo "=== Step 3/5: pixi install ==="
+echo "=== Step 3/6: pixi install ==="
 for repo in "${REPOS[@]}"; do
     echo "--- Installing $repo ---"
     (
@@ -69,7 +69,7 @@ for repo in "${REPOS[@]}"; do
     )
 done
 
-echo "=== Step 4/5: pixi install (dev) ==="
+echo "=== Step 4/6: pixi install (dev) ==="
 for repo in "${REPOS[@]}"; do
     echo "--- Installing (dev) $repo ---"
     (
@@ -78,8 +78,11 @@ for repo in "${REPOS[@]}"; do
     )
 done
 
-echo "=== Step 5/5: Sync cache back ==="
+echo "=== Step 5/6: Sync cache back ==="
 time rsync -a "$WORK_CACHE_DIR/" "$ORIG_CACHE_DIR/"
+
+echo "=== Step 6/6: Copy lock file back ==="
+time cp "$WORK_DIR/*.lock" "$ORIG_DIR/."
 
 echo "=== Cleanup ==="
 time rm -rf "$WORK_CACHE_DIR"

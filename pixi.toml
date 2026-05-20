@@ -5,17 +5,21 @@ preview = ["pixi-build"]
 
 [dependencies]
 autoengine = { path = "." }
-automol = "==0.0.11"  # local:false
-autostorage = "==0.0.7"  # local:false
-# automol = { path = "../automol" }  # local:true
-# autostorage = { path = "../autostorage" }  # local:true
+# automol = "==0.0.11"  # local:false
+# autostorage = "==0.0.7"  # local:false
+automol = { path = "../automol" }  # local:true
+autostorage = { path = "../autostorage" }  # local:true
 crest = ">=3.0.2,<4"
 geometric = ">=1.1,<2"
 numpy = ">=2.4.3,<3"
 
 [pypi-dependencies]
-qcdata = ">=0.17.0"
-qccompute = ">=0.13.0"
+# qcdata = ">=0.17.0" # local:false
+qcdata = { path = "../qcdata", editable = true }  # local:true
+# qccompute = ">=0.13.1" # local:false
+qccompute = { path = "../qccompute", editable = true }  # local:true
+# qccodec = ">=0.10.1" # local:false
+qccodec = { path = "../qccodec", editable = true }  # local:true
 
 [package]
 name = "autoengine"
@@ -55,9 +59,6 @@ sphinx-autodoc2 = "*"
 [environments]
 default = { solve-group = "default" }
 dev = { features = ["dev", "docs"], solve-group = "default"}
-
-[pypi-dependencies]
-qccompute = ">=0.13.1, <0.14"
 
 [feature.dev.tasks]
 # Manage pyproject.toml with uv

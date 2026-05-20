@@ -8,6 +8,7 @@ dependencies = [
     "autostorage>=0.0.7",
     "qcdata>=0.17.0",
     "qccompute>=0.13.1",
+    "qccodec>=0.10.1",
 ]
 
 [build-system]

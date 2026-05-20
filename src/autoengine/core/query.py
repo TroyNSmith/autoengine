@@ -48,7 +48,7 @@ def energies(
 def stationary_points(
     db: Database, *, calc: CalculationRow, geo: GeometryRow
 ) -> Iterator[StationaryPointRow]:
-    """Yield matching energy rows from database, if present."""
+    """Yield matching stationary point rows from database, if present."""
     for calc_row in calculations(db, calc=calc, inp_geo=geo):
         for stp_row in calc_row.stationary_points:
             if stp_row.id:
