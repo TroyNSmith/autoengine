@@ -33,9 +33,11 @@ def _existing_optimization(
 
     Matches on chemical identity (InChI) and model/provenance rather than
     ``geo``'s row id, then confirms conformer equality (via iRMSD) against
-    the input geometry of each candidate calculation. This catches the case
-    where ``geo`` is a different row from an already-optimized input that
-    represents the same conformer.
+    the input *and* output geometry of each candidate calculation. This
+    catches the case where ``geo`` is a different row from an
+    already-optimized input that represents the same conformer, as well as
+    the case where ``geo`` is itself close to an already-optimized output
+    (e.g. a freshly generated conformer that lands near a known minimum).
     """
     try:
         ident = Identity.from_geometry(geo, algorithm=Algorithm.RDKIT_INCHI)
@@ -66,12 +68,12 @@ def _existing_optimization(
         )
     )
     for candidate in db.exec_all(stmt):
-        input_geos = [
+        candidate_geos = [
             link.geometry
             for link in candidate.calculation.geometry_links
-            if link.role == Role.INPUT
+            if link.role in (Role.INPUT, Role.OUTPUT)
         ]
-        if any(geom.is_duplicate_conformer(geo, input_geos)):
+        if any(geom.is_duplicate_conformer(geo, candidate_geos)):
             return candidate
 
     return None
@@ -84,7 +86,7 @@ def _existing_conformer_search(
 
     Matches on chemical identity (InChI) and model/provenance rather than
     ``geo``'s row id, then confirms conformer equality (via iRMSD) against
-    the input geometry of each candidate calculation. Unlike
+    the input *and* output geometries of each candidate calculation. Unlike
     ``_existing_optimization``, a conformer search calculation produces many
     output stationary points rather than one, so the match is returned at the
     ``CalculationRow`` level.
@@ -119,12 +121,12 @@ def _existing_conformer_search(
         .distinct()
     )
     for candidate in db.exec_all(stmt):
-        input_geos = [
+        candidate_geos = [
             link.geometry
             for link in candidate.geometry_links
-            if link.role == Role.INPUT
+            if link.role in (Role.INPUT, Role.OUTPUT)
         ]
-        if any(geom.is_duplicate_conformer(geo, input_geos)):
+        if any(geom.is_duplicate_conformer(geo, candidate_geos)):
             return candidate
 
     return None
@@ -176,7 +178,9 @@ def conformer_search(
     program_output = qccompute.compute(model.program, program_input)
 
     # 4. Convert the resulting ProgramOutput to StationaryPointRows
-    out_prov = OutputProvenance.model_validate(program_output.provenance.model_dump())
+    out_prov = OutputProvenance.model_validate(
+        program_output.provenance.model_dump(mode="json")
+    )
     calc.output_provenance = out_prov.model_dump(mode="json")
     calc = calc.save(db)
 
@@ -232,7 +236,9 @@ def optimization(
     program_output = qccompute.compute(model.program, program_input)
 
     # 4. Convert the resulting ProgramOutput to a StationaryPointRow
-    out_prov = OutputProvenance.model_validate(program_output.provenance.model_dump())
+    out_prov = OutputProvenance.model_validate(
+        program_output.provenance.model_dump(mode="json")
+    )
     calc.output_provenance = out_prov.model_dump(mode="json")
     calc = calc.save(db)
 
