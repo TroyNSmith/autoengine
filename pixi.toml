@@ -1,6 +1,6 @@
 [workspace]
 channels = ["conda-forge", "avcopan"]
-platforms = ["linux-64", "osx-64", "osx-arm64"]
+platforms = ["linux-64"]
 preview = ["pixi-build"]
 
 [dependencies]
@@ -9,11 +9,15 @@ automol = "==0.0.19"  # local:false
 autostorage = "==0.0.10"  # local:false
 # automol = { path = "../automol" }  # local:true
 # autostorage = { path = "../autostorage" }  # local:true
+python = ">=3.12,<3.14"
 
 [pypi-dependencies]
 qcdata = ">=0.17.1"
 qccodec = ">=0.10.1"
 qccompute = ">=0.13.1"
+irmsd = "==0.1.1"
+xyzrender = ">=0.3.6, <0.4"
+stereomolgraph = ">=0.0.22b0, <0.0.23"
 
 [package]
 name = "autoengine"

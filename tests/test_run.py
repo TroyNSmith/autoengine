@@ -7,6 +7,7 @@ from unittest.mock import MagicMock
 import numpy as np
 import pytest
 import qcdata
+from automol.utils.constants import ANGSTROM_TO_BOHR
 from autostorage import Database, GeometryRow, ModelRow
 from autostorage.exc import MissingPrimaryKeyError
 
@@ -44,7 +45,7 @@ def model_row(db: Database) -> ModelRow:
 def _fake_program_output(geo: GeometryRow) -> MagicMock:
     structure = qcdata.Structure(
         symbols=geo.symbols,
-        geometry=np.asarray(geo.coordinates),
+        geometry=np.asarray(geo.coordinates) * ANGSTROM_TO_BOHR,
         charge=geo.charge,
         multiplicity=geo.spin + 1,
     )
@@ -86,3 +87,69 @@ def test__optimization_requires_persisted_rows() -> None:
 
     with pytest.raises(MissingPrimaryKeyError):
         run.optimization(None, geo, model, InputProvenance())  # ty:ignore[invalid-argument-type]
+
+
+def _fake_conformer_search_output(structures: list[qcdata.Structure]) -> MagicMock:
+    output = MagicMock()
+    output.provenance = qcdata.Provenance(program="orca")
+    output.data.conformers = structures
+    output.data.conformer_energies = np.zeros(len(structures))
+    return output
+
+
+def test__conformer_search_runs_and_caches(
+    db: Database,
+    geometry_row: GeometryRow,
+    model_row: ModelRow,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """First call runs the calculation; a repeat call returns the cached ensemble."""
+    calls = []
+    conformer = qcdata.Structure(
+        symbols=geometry_row.symbols,
+        geometry=np.asarray(geometry_row.coordinates) * ANGSTROM_TO_BOHR,
+        charge=geometry_row.charge,
+        multiplicity=geometry_row.spin + 1,
+    )
+
+    def fake_compute(program: str, input_data: object, **_kwargs: object) -> MagicMock:
+        calls.append((program, input_data))
+        return _fake_conformer_search_output([conformer, conformer])
+
+    monkeypatch.setattr(run.qccompute, "compute", fake_compute)
+
+    stationaries = run.conformer_search(db, geometry_row, model_row, InputProvenance())
+    assert len(stationaries) == len([conformer, conformer])
+    assert all(s.id is not None for s in stationaries)
+    assert len({s.calculation_id for s in stationaries}) == 1
+    assert len(calls) == 1
+
+    stationaries2 = run.conformer_search(db, geometry_row, model_row, InputProvenance())
+    assert [s.id for s in stationaries2] == [s.id for s in stationaries]
+    assert len(calls) == 1
+
+
+def test__conformer_search_handles_empty_result(
+    db: Database,
+    geometry_row: GeometryRow,
+    model_row: ModelRow,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """A conformer search that finds no conformers returns an empty list."""
+
+    def fake_compute(*_args: object, **_kwargs: object) -> MagicMock:
+        return _fake_conformer_search_output([])
+
+    monkeypatch.setattr(run.qccompute, "compute", fake_compute)
+
+    stationaries = run.conformer_search(db, geometry_row, model_row, InputProvenance())
+    assert stationaries == []
+
+
+def test__conformer_search_requires_persisted_rows() -> None:
+    """Unsaved geometry/model rows (no primary key) are rejected."""
+    geo = GeometryRow(symbols=["H"], coordinates=np.zeros((1, 3)), charge=0, spin=0)
+    model = ModelRow(program="orca", method="hf", basis="sto-3g")
+
+    with pytest.raises(MissingPrimaryKeyError):
+        run.conformer_search(None, geo, model, InputProvenance())  # ty:ignore[invalid-argument-type]
