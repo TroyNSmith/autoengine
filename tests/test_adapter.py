@@ -9,7 +9,9 @@ from autostorage.types import CalcType
 from autoengine import adapter
 
 
-def _geometry_row() -> GeometryRow:
+@pytest.fixture
+def geometry_row() -> GeometryRow:
+    """GeometryRow fixture for testing."""
     return GeometryRow(
         symbols=["O", "H", "H"],
         coordinates=np.array([[0.0, 0.0, 0.0], [0.0, 0.0, 0.96], [0.93, 0.0, -0.24]]),
@@ -18,13 +20,15 @@ def _geometry_row() -> GeometryRow:
     )
 
 
-def _model_row() -> ModelRow:
+@pytest.fixture
+def model_row() -> ModelRow:
+    """ModelRow fixture for testing."""
     return ModelRow(program="orca", method="wb97x-d3", basis="def2-svp")
 
 
-def test__geometry_row_structure_round_trip() -> None:
+def test__geometry_row_structure_round_trip(geometry_row: GeometryRow) -> None:
     """Geometry row -> Structure -> geometry row round-trips coordinates/spin."""
-    geo = _geometry_row()
+    geo = geometry_row
     struct = adapter.geometry_row_to_structure(geo)
 
     assert struct.symbols == geo.symbols
@@ -39,9 +43,9 @@ def test__geometry_row_structure_round_trip() -> None:
     assert np.allclose(geo2.coordinates, geo.coordinates)
 
 
-def test__model_row_qc_model_round_trip() -> None:
+def test__model_row_qc_model_round_trip(model_row: ModelRow) -> None:
     """Model row -> Model -> model row round-trips method/basis/program."""
-    model = _model_row()
+    model = model_row
     qc_model = adapter.model_row_to_qc_model(model)
 
     assert qc_model.method == model.method
@@ -53,10 +57,12 @@ def test__model_row_qc_model_round_trip() -> None:
     assert model2.basis == model.basis
 
 
-def test__calculation_program_input_round_trip() -> None:
+def test__calculation_program_input_round_trip(
+    geometry_row: GeometryRow, model_row: ModelRow
+) -> None:
     """Calculation row -> ProgramInput -> calculation row round-trips fields."""
-    geo = _geometry_row()
-    model = _model_row()
+    geo = geometry_row
+    model = model_row
     calc = CalculationRow(
         model=model,
         calc_type=CalcType.ENERGY,
@@ -75,10 +81,12 @@ def test__calculation_program_input_round_trip() -> None:
     assert np.allclose(geo2.coordinates, geo.coordinates)
 
 
-def test__calculation_dual_program_input_round_trip() -> None:
+def test__calculation_dual_program_input_round_trip(
+    geometry_row: GeometryRow, model_row: ModelRow
+) -> None:
     """Calculation row -> DualProgramInput -> calculation row round-trips fields."""
-    geo = _geometry_row()
-    model = _model_row()
+    geo = geometry_row
+    model = model_row
     calc = CalculationRow(
         model=model,
         calc_type=CalcType.OPT,

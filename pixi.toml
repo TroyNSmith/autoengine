@@ -11,12 +11,9 @@ autostorage = "==0.0.10"  # local:false
 # autostorage = { path = "../autostorage" }  # local:true
 
 [pypi-dependencies]
-qcdata = ">=0.17.1"  # local:false
-qccodec = ">=0.10.1"  # local:false
-qccompute = ">=0.13.1"  # local:false
-# qcdata = { path = "../qcdata", editable = true }  # local:true
-# qccodec = { path = "../qccodec", editable = true }  # local:true
-# qccompute = { path = "../qccompute", editable = true }  # local:true
+qcdata = ">=0.17.1"
+qccodec = ">=0.10.1"
+qccompute = ">=0.13.1"
 
 [package]
 name = "autoengine"

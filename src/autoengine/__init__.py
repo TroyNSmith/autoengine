@@ -2,6 +2,6 @@
 
 __version__ = "0.0.1"
 
-from .adapter import greet
+from .run import optimization
 
-__all__ = ["greet"]
+__all__ = ["optimization"]

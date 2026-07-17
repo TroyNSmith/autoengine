@@ -9,22 +9,6 @@ from autostorage import CalculationRow, GeometryRow, ModelRow
 from autostorage.types import CalcType
 from pydantic import BaseModel
 
-
-def greet(name: str) -> str:
-    """Greet a person by their name.
-
-    Parameters
-    ----------
-    name :
-        The name of the person to greet.
-
-    Returns
-    -------
-        A greeting message.
-    """
-    return f"Hello, {name}!"
-
-
 # CalcType mapping
 _CALC_TYPE_TO_QC: dict[CalcType, qcdata.CalcType] = {
     CalcType.OPT: qcdata.CalcType.optimization,
