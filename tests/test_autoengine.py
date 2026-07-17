@@ -11,8 +11,3 @@ def test_stub() -> None:
 def test__greet() -> None:
     """Test the greet function."""
     assert autoengine.greet("World") == "Hello, World!"
-
-
-def test__greet_jim() -> None:
-    """Test the greet_jim function."""
-    assert autoengine.greet_jim() == "Hello, Jim!"

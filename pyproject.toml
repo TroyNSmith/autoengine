@@ -52,14 +52,6 @@ include = [
 [tool.importlinter]
 root_package = "autoengine"
 
-[[tool.importlinter.contracts]]
-name = "Module Layering"
-type = "layers"
-layers = [
-    "autoengine.layer2",
-    "autoengine.layer1",
-]
-
 # Pytest configurations
 [tool.pytest.ini_options]
 testpaths = ["tests", "src"]

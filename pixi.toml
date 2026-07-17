@@ -5,8 +5,8 @@ preview = ["pixi-build"]
 
 [dependencies]
 autoengine = { path = "." }
-automol = "==0.0.11"  # local:false
-autostorage = "==0.0.7"  # local:false
+automol = "==0.0.19"  # local:false
+autostorage = "==0.0.10"  # local:false
 # automol = { path = "../automol" }  # local:true
 # autostorage = { path = "../autostorage" }  # local:true
 
